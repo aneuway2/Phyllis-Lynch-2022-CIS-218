@@ -1,11 +1,9 @@
+"""Phyllis Lynch Lab 4"""
 my_dict = {"winter":"a cold season", "spring":"a wet season", "summer":"the only season worth talking about"}
-
-for key,value in my_dict.items():
-    '''print(f'{key}={value}')'''
-
+while True:
     response = (input( "What season are you looking for? "))
     if response in my_dict:
-        print(value)
+        print("that is in the dictionary")
     else:
         question = (input("That is not found do you want to add it? yes or no "))
     if question == ("yes"):
