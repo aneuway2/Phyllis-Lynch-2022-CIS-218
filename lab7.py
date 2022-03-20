@@ -4,29 +4,29 @@
 def calculate_bmi(height, weight):
     """calculate bmi from inout"""
     bmi = round(weight / height / height * 703, 1)
-    print("The bmi is", bmi, "which is ", category)
+    # print("The bmi is", bmi, "which is ", category)
     return bmi
 
 
-def test_calculate_bmi(bmi):
+def test_calculate_bmi():
     assert calculate_bmi(59, 143) == 28.9
     assert calculate_bmi(63, 200) == 35.4
     assert calculate_bmi(50, 215) == 60.5
     assert calculate_bmi(48, 95) == 29.0
 
 
-def bmi_to_category(cat):
-    if 18.5 < bmi:
+def bmi_to_category(bmi):
+    if bmi < 18.5:
         return "underweight"
-    if  18.5 > bmi < 24.9:
+    elif 18.5 <= bmi < 24.9:
         return "healthy"
-    if 24.9 > bmi < 29.9:
+    elif 24.9 <= bmi < 29.9:
         return "unhealthy"
-    if 29.9 > bmi:
-        return "Obese"
+    else:
+        return "obese"
 
 
-def test_bmi_to_category(bmi):
+def test_bmi_to_category():
     assert bmi_to_category(10) == "underweight"
     assert bmi_to_category(23) == "healthy"
     assert bmi_to_category(26) == "unhealthy"
@@ -35,18 +35,21 @@ def test_bmi_to_category(bmi):
 
 height = float(input("Enter your height in inches please. "))
 weight = float(input("Enter your weight in pounds please. "))
-bmi = round(weight / height / height * 703, 1)
-if bmi:
-    if bmi < 18.5:
-        category = "Underweight"
-    if bmi > 18.5 < 24.9:
-        category = "healthy"
-    if bmi > 24.9 < 29.9:
-        category = "unhealthy"
-    if bmi > 29.9:
-        category = "obese"
-    bmi_to_category(bmi)
+# bmi = round(weight / height / height * 703, 1)
+# if bmi:
+#     if bmi < 18.5:
+#         category = "Underweight"
+#     if bmi > 18.5 < 24.9:
+#         category = "healthy"
+#     if bmi > 24.9 < 29.9:
+#         category = "unhealthy"
+#     if bmi > 29.9:
+#         category = "obese"
+#     bmi_to_category(bmi)
+test_calculate_bmi()
+test_bmi_to_category()
+
+
 bmi = calculate_bmi(height, weight)
 cat = bmi_to_category(bmi)
-'''test_calculate_bmi(bmi)
-test_bmi_to_category(category)'''
+print("The bmi is", bmi, "which is ", cat)
